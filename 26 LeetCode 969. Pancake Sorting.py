@@ -10,3 +10,4 @@ class Solution:
             A = A[:i:-1] + A[:i]
         return res
 
+
