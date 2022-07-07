@@ -23,6 +23,7 @@ class MinStack:
         return self.stack[-1]
 
     def getMin(self) -> int:
+        #if the list is empty
         if not self.min_Value:
             return 0
         return self.min_value[-1]
