@@ -13,14 +13,14 @@ class Solution:
 
         size, end, result = 0, 0, []
 
-        for idx, letter in enumerate(s):
+        for start, letter in enumerate(s):
 
             size +=1
             # keep track of the max index of a letter in our partition
             end = max(end, last_index[letter])
 
             # if our current index is known to be the last index of letter
-            if (end == idx):
+            if (end == start):
                 result.append(size)
                 size = 0
 
