@@ -1,6 +1,7 @@
  
 class Solution:
     def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
+        #?
         last_drop=-1
         for i in trips:
             last_drop=max(last_drop,i[2])
