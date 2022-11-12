@@ -3,10 +3,19 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        
-        while k > 0:
-            nums.insert(0, nums.pop())
-            k-=1
-            
 
-        
+
+
+        left, right = 0, len(nums)-1
+
+        while k > 0:
+            # insert at the beginning
+            nums.insert(left, nums[right])
+
+            # remove item from the end
+            nums.pop()
+
+            # decrement k
+            k -= 1
+
+
