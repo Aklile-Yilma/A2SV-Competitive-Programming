@@ -12,5 +12,5 @@ class Solution:
                 distance = min(distance, curr_distance)
                 
                 
-        return idx_in_list if distance != float('inf') else -1
+        return idx_in_list 
                 
