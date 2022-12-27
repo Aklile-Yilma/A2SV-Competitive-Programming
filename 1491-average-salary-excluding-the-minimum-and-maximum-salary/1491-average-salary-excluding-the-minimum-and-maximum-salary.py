@@ -3,8 +3,9 @@ class Solution:
         
         salary.sort()
         
+        # sum the salaries in the list except the first and last salaries since they are min and max salaries
         summation = sum(salary[1:len(salary)-1])
-        print(summation)
+        # total number of salaries added
         num_of_items = len(salary) - 2
         
         average = summation/num_of_items
