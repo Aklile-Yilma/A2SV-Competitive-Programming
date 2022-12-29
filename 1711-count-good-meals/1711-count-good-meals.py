@@ -9,11 +9,11 @@ class Solution:
         count = 0 # to store the answer
 
         for idx1 in range(0, len(deliciousness)):
-            for i in range(0, len(pows)):
+            for idx2 in range(0, len(pows)):
                 
                 # "if we find a previous deliciousness[j] as pows[i] - deliciousness[j], then we will add dp_seen[deliciousness[j]] to count"
-                if pows[i] - deliciousness[idx1] in dp_seen: 
-                    count += dp_seen[pows[i] - deliciousness[idx1]]
+                if pows[idx2] - deliciousness[idx1] in dp_seen: 
+                    count += dp_seen[pows[idx2] - deliciousness[idx1]]
             
             if deliciousness[idx1] in dp_seen:
                 dp_seen[deliciousness[idx1]] += 1 
