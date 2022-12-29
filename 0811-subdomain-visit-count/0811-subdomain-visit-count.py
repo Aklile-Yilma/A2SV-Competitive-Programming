@@ -5,7 +5,6 @@ class Solution:
         count = {}
         
         for item in cpdomains:
-            
             #item description contains "9001 discuss.leetcode.com"
             item_des = item.split(' ')
                         
@@ -13,8 +12,9 @@ class Solution:
             rep = int(item_des[0])
             domain = item_des[1]
             
-            # count[domain] = rep
+            
             self.visitCount(count, domain, rep)
+            
             splitted_domains = domain.split('.')
             
             if(len(splitted_domains) == 3):
