@@ -9,6 +9,7 @@ class Solution:
         
 
         for char in num1:
+            # recreate the number from base0 
             result1 = (10*result1) + num[char]
                         
         for char in num2:
@@ -19,4 +20,3 @@ class Solution:
             
             
         
-        # return str(int(num1) * int(num2))
