@@ -1,17 +1,6 @@
 class Solution:
     def addSpaces(self, s: str, spaces: List[int]) -> str:
         
-#         s_list = [letter for letter in s]
-        
-#         # keep track of idx variation after inserting
-#         variation = 0
-        
-#         for num in spaces:
-#             s_list.insert(num + variation, " ")
-#             variation += 1
-            
-#         return "".join(s_list)
-
         s_list = []
     
         spaces = set(spaces)
