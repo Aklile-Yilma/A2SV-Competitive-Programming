@@ -12,8 +12,8 @@ class Solution:
         for row_idx in range(row_length):
             curr_col = []
             for col_idx in range(col_length):
+                #grab columns 
                 curr_col.append(grid[col_idx][row_idx])
-                
             
             curr_col = tuple(curr_col)
             if(curr_col in grid_map):
