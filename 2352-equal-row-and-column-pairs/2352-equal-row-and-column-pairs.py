@@ -5,16 +5,8 @@ class Solution:
         
         col_length = len(grid[0])
         row_length = len(grid)
-        pairs = 0
-        grid_map = {}
-        
-        for row in grid:
-            row_tuple = tuple(row)
-            
-            if(row_tuple in grid_map):
-                grid_map[row_tuple] += 1
-            else:
-                grid_map[row_tuple] = 1        
+        pairs = 0                
+        grid_map = Counter(tuple(row) for row in grid)
         
     
         for row_idx in range(row_length):
