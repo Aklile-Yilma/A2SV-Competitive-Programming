@@ -17,6 +17,7 @@ class Solution:
                     cur_row-= 1
                     cur_col+= 1
                 
+                # when we are out of bounds 
                 if cur_col == cols:
                     cur_col-= 1
                     cur_row+= 2
