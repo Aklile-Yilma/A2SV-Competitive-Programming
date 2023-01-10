@@ -17,7 +17,7 @@ class Solution:
                 else:
                     vertical_words[col_idx][row_idx] = " "
                         
-       # join and remove trailing spaces 
+        # join and remove trailing spaces 
         vertical_words = ["".join(letters).rstrip() for letters in vertical_words]
         
         return vertical_words
