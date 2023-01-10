@@ -8,8 +8,6 @@ class Solution:
         # generate a transposed matrix
         vertical_words = [["" for _ in range(row_length)] for _ in range(col_length)]
 
-        # print(vertical_words)
-        # print(matrix)
         for row_idx in range(row_length):
             for col_idx in range(col_length):
                 if col_idx < len(matrix[row_idx]):
