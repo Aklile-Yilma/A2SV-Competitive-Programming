@@ -14,9 +14,10 @@ class Solution:
             for col_idx in range(col_length):
                 curr_col.append(grid[col_idx][row_idx])
                 
-                                
-            if(tuple(curr_col) in grid_map):
-                pairs += grid_map[tuple(curr_col)]
+            
+            curr_col = tuple(curr_col)
+            if(curr_col in grid_map):
+                pairs += grid_map[curr_col]
                 
         return pairs
                 
