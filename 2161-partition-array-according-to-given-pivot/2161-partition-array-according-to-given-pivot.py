@@ -10,7 +10,7 @@ class Solution:
                 if(num > pivot):
                     greater_pivot.append(num)
                 else:
-                    #edge case for multiple pivots
+                    #edge case for multiple pivots such that all pivots must be at the center
                     if less_pivot:
                         if less_pivot[-1] == pivot:
                             less_pivot.pop()
