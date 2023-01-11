@@ -3,9 +3,9 @@ class Solution:
         
         answer = [0] * len(boxes)
         
+        # double iteration of the entire list
         for idx1, box in enumerate(boxes):
             for idx2, box2 in enumerate(boxes):
-                
                 if(idx1!= idx2 and box2 == "1"):
                     answer[idx1] += abs(idx1 - idx2)
                     
