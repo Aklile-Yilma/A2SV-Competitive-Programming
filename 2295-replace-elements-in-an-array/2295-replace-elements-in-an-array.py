@@ -12,8 +12,6 @@ class Solution:
             nums[idx] = replacement
             nums_map[replacement] = idx
             
-        # sort with values and return only the keys
-        # return dict(sorted(nums_map.items(), key=lambda x: x[1])).keys()
         return nums
             
             
