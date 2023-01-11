@@ -12,7 +12,8 @@ class DataStream:
         if num != self.value:
             #reset last idx to current idx if num != value
             self.lastIdx = self.currIdx
-            
+        
+        # window must be greater or equal to k
         return self.currIdx - self.lastIdx >= self.k
     
 
