@@ -11,7 +11,8 @@ class Solution:
         size = row_length * col_length
         left_boundary, top_boundary = 0, 0
         
-        
+        #row_length is used as a bottom boundary and decremented as such
+        #col_length is used as a right boundary and decreamented as such
         while len(spiral) < size:
             
             if going_right or going_down:
