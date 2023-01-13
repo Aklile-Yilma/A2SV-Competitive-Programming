@@ -10,11 +10,10 @@ class Solution:
         for i in range(1, row_length-1):
             for j in range(1, col_length-1):
                 curr_sum = self.get_hourglass(grid, i, j)
-                
                 max_sum = max(max_sum, curr_sum)
         
-        
         return max_sum
+    
 #         return max(
 #             self.get_hourglass(grid, i, j)
 #             for i in range(1, row_length - 1)
