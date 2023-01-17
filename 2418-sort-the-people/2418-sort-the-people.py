@@ -1,12 +1,10 @@
+# Select Sort
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
         
         for first_idx in range(len(names)-1):
             for idx in range(first_idx, len(names)):
                 second_idx = idx 
-                
-                if(second_idx >= len(names)):
-                    break
                     
                 if(heights[first_idx] < heights[second_idx]):
                     names[first_idx], names[second_idx] = names[second_idx], names[first_idx]
