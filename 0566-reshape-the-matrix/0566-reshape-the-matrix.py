@@ -7,8 +7,6 @@ class Solution:
             return mat
         
         new_mat = [['' for i in range(c)] for i in range(r)]
-        flatten_list = [col for row in mat for col in row]
-        isLegal = True
         
         idx = 0
         for row_idx in range(row_length):
