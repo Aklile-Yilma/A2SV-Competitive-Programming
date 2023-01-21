@@ -25,7 +25,6 @@ class Solution:
         for row_idx in range(n):        
             for col_idx in range(row_idx, n):
                 matrix[row_idx][col_idx],matrix[col_idx][row_idx] = matrix[col_idx][row_idx], matrix[row_idx][col_idx]
-                print(matrix)
                 
                 
         
