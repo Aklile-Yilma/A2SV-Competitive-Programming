@@ -3,10 +3,11 @@ class Solution:
         
         count = 0
         rows, cols = len(grid), len(grid[0])
+        
+        #grab possible 3x3 matrix
         for r in range(rows - 2):
             for c in range(cols - 2):
                 subMatrix = [grid[row_idx][c: c + 3] for row_idx in range(r, r + 3)]
-                print(subMatrix)
                 if self.isMagicSquare(subMatrix):
                     count += 1
     
