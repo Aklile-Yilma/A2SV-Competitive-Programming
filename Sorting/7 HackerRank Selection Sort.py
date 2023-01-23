@@ -17,11 +17,11 @@
 
 def SelectionSort(n, arr):
 
-    for i in range(n):
-        unsorted_index=i
-        for j in range(i,n):
+    for idx in range(n):
+        unsorted_index=idx
+        for j in range(idx,n):
             if arr[j] < arr[unsorted_index]:
-                (arr[i], arr[unsorted_index])= (arr[unsorted_index], arr[i])
+                (arr[idx], arr[unsorted_index])= (arr[unsorted_index], arr[idx])
                 
                 
 
