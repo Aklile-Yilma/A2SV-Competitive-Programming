@@ -8,7 +8,9 @@ and Keep repeating it until the array is sorted.
 
         end = len(arr) - 1
         Idx =  arr.index(max(arr))
+        # get the largest number to the start
         arr[:Idx+1] =  reversed(arr[:Idx+1])
+        # get the largest number to the end
         arr.reverse()
         res = [Idx+1, end+1] 
         
