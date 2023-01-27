@@ -1,9 +1,9 @@
 class Solution:
     def judgeSquareSum(self, c: int) -> bool:
         
-        cc = int(c ** 0.5)
+        square_root = int(c ** 0.5)
         left = 0
-        right = cc
+        right = square_root
         while left <= right:
             res = left ** 2 + right ** 2
             if res == c:
