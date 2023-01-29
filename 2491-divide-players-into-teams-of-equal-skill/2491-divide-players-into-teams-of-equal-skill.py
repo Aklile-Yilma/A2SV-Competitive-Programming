@@ -6,12 +6,12 @@ class Solution:
         left = 0
         right = len(skill) - 1
         total_chemistry = 0
-        first_chemistry = skill[left] + skill[right]
+        first_skill = skill[left] + skill[right]
         
         while left < right:
             
-            curr_chemistry = skill[left] + skill[right]
-            if curr_chemistry != first_chemistry:
+            curr_skill = skill[left] + skill[right]
+            if curr_skill != first_skill:
                 return -1
             
             total_chemistry += (skill[left] * skill[right])
