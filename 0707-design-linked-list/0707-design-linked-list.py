@@ -5,7 +5,6 @@ class MyLinkedList:
         self.size = 0
         
     def get(self, index: int) -> int:
-        # self.printNodes()     
         if index >= self.size:
             return -1
         
@@ -22,16 +21,13 @@ class MyLinkedList:
         return
 
     def addAtHead(self, val: int) -> None:
-        # self.printNodes()     
         newNode = Node(val)
         newNode.next = self.head
         self.head = newNode
         self.size += 1
-        # print(self.size)
         return 
         
     def addAtTail(self, val: int) -> None:      
-        # self.printNodes()     
         if self.size == 0:
             self.addAtHead(val)
             return
@@ -47,7 +43,6 @@ class MyLinkedList:
         return
         
     def addAtIndex(self, index: int, val: int) -> None:
-        # self.printNodes()     
         if index > self.size:
             return
         
@@ -74,7 +69,6 @@ class MyLinkedList:
         return
 
     def deleteAtIndex(self, index: int) -> None:
-        # self.printNodes()     
         if index >= self.size:
             return
         if self.head is None:
