@@ -11,7 +11,8 @@ class Solution:
         curr = head
         
         while curr:
-            
+            # set the value of the respective tail
+            # move the respective tail
             if curr.val < x:
                 left_tail.next = curr
                 left_tail = left_tail.next
@@ -22,7 +23,7 @@ class Solution:
             
         # left tail points at right head(.next since it's dummy)
         left_tail.next = right.next
-        # right tail points at None
+        # right tail points at None since it's now the end node
         right_tail.next = None
         
         # return left.next since it's dummy
