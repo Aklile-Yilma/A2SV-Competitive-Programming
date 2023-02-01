@@ -37,21 +37,16 @@ class Solution:
         window = self.reverseList(window.next)
         # connect prefix to window
         prefix_tail.next = window
-        # connect window to postfix(skipping dummy node)
-        # window_tail.next = postfix.next
-        
+        # connect window to postfix(skipping dummy node)        
         # since the tail of the window is reversed find new tail
         curr = window
         while curr.next:
             curr = curr.next
-            
+        # skip dummy node
         curr.next = postfix.next
         
         return prefix.next
-        # print(window_tail)
-        # print(prefix)
-        # print(window)
-        # print(postfix)
+
         
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
