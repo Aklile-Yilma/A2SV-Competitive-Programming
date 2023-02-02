@@ -13,7 +13,6 @@ class Solution:
         tail = self.reverseList(middle)
         
         # check the first half and reversed last half are equal
-        
         left, right = head, tail
         
         while right:
