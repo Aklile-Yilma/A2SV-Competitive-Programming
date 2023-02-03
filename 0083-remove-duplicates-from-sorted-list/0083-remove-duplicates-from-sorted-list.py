@@ -13,7 +13,9 @@ class Solution:
             if prev and curr.val == prev.val:
                 prev.next = curr.next
             else:
+                #only move prev if it's not non-duplicate
                 prev = curr
+                
             curr = curr.next
             
         return head
