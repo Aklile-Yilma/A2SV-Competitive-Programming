@@ -10,7 +10,7 @@ class Solution:
         slow = dummy
         fast = head
         
-        # slow and fast pointer have a fixed window size of (N) PLUS ONE because of dummy node
+        # slow and fast pointer have a fixed window size of (N+1) (PLUS ONE because of dummy node)
         while n>0 and fast:
             fast = fast.next
             n-=1
