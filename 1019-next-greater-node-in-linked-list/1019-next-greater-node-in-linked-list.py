@@ -13,7 +13,7 @@ class Solution:
 		# so to avoid this if statement in each looping I have use this trick so that my stack is always non empty.
 		
         stack = [[float(inf), -1]]
-        i = 0
+        idx = 0
 
         while head:
 
@@ -29,9 +29,9 @@ class Solution:
                 old_value, old_index = stack[-1]
 
 
-            stack.append([current_value, i])        # carring index as well as value 
+            stack.append([current_value, idx])        # carring index as well as value 
             head = head.next
-            i += 1
+            idx += 1
 
         return result
 
