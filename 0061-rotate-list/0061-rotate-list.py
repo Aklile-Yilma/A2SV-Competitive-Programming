@@ -16,14 +16,16 @@ class Solution:
             size += 1
             
         k = k % size
+        #point tail to head
         curr.next = head
         
         slow = head
-        slow_head = slow
         for _ in range(size - k - 1):
             slow = slow.next
         
+        #create new head
         head = slow.next
+        #create new tail
         slow.next = None
         
         return head
