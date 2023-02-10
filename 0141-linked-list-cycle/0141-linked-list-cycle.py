@@ -5,25 +5,7 @@
 #         self.next = None
 
 class Solution:
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
-        
-        last_seen = {}
-        
-        pos = 0
-        curr = head
-        print(curr)
-        
-        while curr:
-            if curr in last_seen:
-                return True
-            
-            last_seen[curr] = pos
-            pos += 1
-            curr = curr.next
-            
-        return False
-    
-
+    def hasCycle(self, head: Optional[ListNode]) -> bool:    
         node_set = set()
         while(head):
             if head in node_set:
