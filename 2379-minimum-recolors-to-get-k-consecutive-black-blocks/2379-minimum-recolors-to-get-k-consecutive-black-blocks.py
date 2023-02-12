@@ -1,10 +1,10 @@
 class Solution:
     def minimumRecolors(self, blocks: str, k: int) -> int:
-        seats = blocks
 
+        #A2SV interview question
         left, total, result = 0, 0, float('inf')
 
-        for right, char in enumerate(seats):
+        for right, char in enumerate(blocks):
 
             if(char == 'W'):
                 total += 1
@@ -12,7 +12,7 @@ class Solution:
 
             if(right - left + 1 == k ):
                 result = min(result, total)
-                if(seats[left] == 'W'):
+                if(blocks[left] == 'W'):
                     total -= 1
                 left += 1
 
