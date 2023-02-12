@@ -7,6 +7,7 @@ class Solution:
         
         players.sort()
         trainers.sort()
+        
         while players_ptr < len(players) and trainers_ptr < len(trainers):
             
             if players[players_ptr] <= trainers[trainers_ptr]:
