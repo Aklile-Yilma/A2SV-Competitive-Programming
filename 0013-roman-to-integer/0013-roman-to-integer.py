@@ -30,11 +30,9 @@ class Solution:
                 if double_char in roman_int_map:
                     num += roman_int_map[double_char]
                     skip_next = True
-                else:
-                    num += roman_int_map[char]
-            else:
-                num += roman_int_map[char]
-            
+                    continue
+                
+            num += roman_int_map[char]
             
         return num
         
