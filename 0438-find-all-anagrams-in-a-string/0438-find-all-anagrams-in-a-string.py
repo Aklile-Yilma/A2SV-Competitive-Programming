@@ -11,7 +11,6 @@ class Solution:
         for right, letter in enumerate(s):
             # add to letter_map
             if letter in p_count.keys():
-                
                 if letter not in letter_map:
                     letter_map[letter] = 1
                 else:
@@ -24,7 +23,7 @@ class Solution:
             if right-left+1 == k:
                 if p_count == letter_map:
                     result.append(left)
-                    
+                #move window
                 letter_map[s[left]] -= 1
                 if letter_map[s[left]] == 0:
                     del letter_map[s[left]]
