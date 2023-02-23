@@ -17,17 +17,7 @@ class Solution:
         
         
         string = list(s)
-        for j in range(len(s)):
-            # string[j] = chr(ord(s[j]) + prefix[j])
-            # num_ord = ord(s[j]) + (prefix[j]%26)
-            
+        for j in range(len(s)):            
             string[j] = chr((ord(s[j]) - 97 + prefix[j]) % 26 + 97)
-                        
-#             if num_ord > ord('z'):
-#                 num_ord = num_ord % ord('z') + ord('a') - 1
-#             elif num_ord < ord('a'):
-#                 num_ord = ord('z') + (num_ord - ord('a')) + 1
-                
-#             string[j] = chr(num_ord)
         
         return "".join(string)
