@@ -18,7 +18,10 @@ class MyQueue:
         if self.removed_list:
             return self.removed_list[-1]
         else:
-            return self.stack[0]
+            for idx in range(len(self.stack)):
+                self.removed_list.append(self.stack.pop())
+            
+            return self.removed_list[-1]
         
     def empty(self) -> bool:
         return len(self.stack) == 0 and len(self.removed_list) == 0 
