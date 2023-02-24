@@ -8,12 +8,11 @@ class MyQueue:
         self.stack.append(x)        
 
     def pop(self) -> int:
-        if self.removed_list:
-            return self.removed_list.pop()
-        else:
+        if not self.removed_list:
             for idx in range(len(self.stack)):
                 self.removed_list.append(self.stack.pop())
-            return self.removed_list.pop()
+        
+        return self.removed_list.pop()
     
     def peek(self) -> int:
         if self.removed_list:
