@@ -19,9 +19,7 @@ class Solution:
                     t_stack.pop()
             else:
                 t_stack.append(char_t)
-                
-        print(s_stack, t_stack)
-                
+                                
         s = ''.join(s_stack)
         t = ''.join(t_stack)
         
