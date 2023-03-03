@@ -30,8 +30,9 @@ class Solution:
         
         return dummy_head.next
             
-            
-        
+# Iteratively            
+# class Solution:
+#     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:       
 #         list3 = ListNode()
 #         list3_head = list3
         
