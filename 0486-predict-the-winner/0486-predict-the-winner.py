@@ -1,4 +1,6 @@
 class Solution:
+    def __init__(self):
+        self.memo = {}
     def PredictTheWinner(self, nums: List[int]) -> bool:
         
         self.nums = nums
