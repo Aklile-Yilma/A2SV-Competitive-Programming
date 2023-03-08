@@ -1,27 +1,13 @@
 class Solution:
     def numSmallerByFrequency(self, queries: List[str], words: List[str]) -> List[int]:
-        
-        def findFreqOfSmallest(word):
-            word = sorted(word)
-            count = Counter(word)
-            
-            return count[word[0]]
-        
-        count_query = []
-        for query in queries:
-            count = findFreqOfSmallest(query)
-            count_query.append(count)
-            
-        count_words = []
-        for word in words:
-            count = findFreqOfSmallest(word)
-            count_words.append(count)
+                
+        count_words = sorted([word.count(min(word)) for word in words])
         
         #sort words count
-        count_words.sort()
         answer = []
         
-        for query in count_query:
+        for word in queries:
+            query = word.count(min(word))
             low = 0 
             high = len(count_words) - 1
 
