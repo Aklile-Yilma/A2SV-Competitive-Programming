@@ -3,22 +3,21 @@ class Solution:
         curr_comb = []
         comb = []
         
-        def backtrack(comb, curr_comb, n, k):
+        def backtrack(start, curr_comb):
             
             if len(curr_comb) == k:
                 comb.append(curr_comb.copy())
                 return
             
-            start = 1 if not curr_comb else curr_comb[-1] + 1
             
             for j in range(start, n+1):
                 curr_comb.append(j)
-                backtrack(comb, curr_comb, n, k)
+                backtrack(j + 1, curr_comb)
                 curr_comb.pop()
                 
             return 
         
-        backtrack(comb, curr_comb, n, k)
+        backtrack(1, curr_comb)
         return comb
         
                 
