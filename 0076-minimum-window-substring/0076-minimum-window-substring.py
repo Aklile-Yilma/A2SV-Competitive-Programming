@@ -1,12 +1,14 @@
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
 
-        result = [float('inf'), float('inf')]
+        result = [-1, -1]
+        res_len = float('inf')
         t_map = Counter(t)
         window_map = {}
         left = 0
         have = 0
         need = len(t_map)
+        
         
         for right in range(len(s)):
             letter = s[right]
@@ -17,8 +19,9 @@ class Solution:
                 have += 1
             
             while have == need:
-                if result[1] - result[0] > right - left or result[1] == float('inf') or result[0] == float('inf'):
+                if right - left < res_len:
                     result = [left, right]
+                    res_len = right - left + 1
                 #handle dict
                 window_map[s[left]] -= 1
                 #handle have
@@ -30,7 +33,7 @@ class Solution:
                 left += 1
 
         left , right = result[0], result[1] 
-        return s[left:right+1] if left != float('inf') and right != float('inf') else ''
+        return s[left:right+1] if res_len != float('inf') else ''
         
         
 
