@@ -30,11 +30,11 @@ class Solution:
             if not curr:
                 return prev
             
-            #recursive call
-            tail = helper(curr, curr.next)
-            
+            new_head = curr.next
             curr.next = prev
-            
-            return tail
-        
+            #recursive call
+            return helper(curr, new_head)
+                    
         return helper(None, head)
+    
+    
