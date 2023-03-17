@@ -3,11 +3,9 @@ class Solution:
         
         #sort
         candidates.sort()
-        visited = set()
         
         ans = []
         curr_cand = []
-        cand_set = set()
         
         def backtrack(start, curr_cand, total):
 
@@ -24,14 +22,12 @@ class Solution:
                     curr_cand.append(candidates[idx])
                     #check
                     total = sum(curr_cand)
-                    if total == target and tuple(curr_cand) not in cand_set:
+                    if total == target:
                         ans.append(curr_cand.copy())
-                        cand_set.add(tuple(curr_cand.copy()))
 
                     backtrack(idx + 1 , curr_cand, total)
                     curr_cand.pop()
                     
-
             return 
         
         backtrack(0, curr_cand, 0)
