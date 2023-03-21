@@ -4,31 +4,43 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+#     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         
-        def merge(merged_list, list1, list2):
+#         def merge(merged_list, list1, list2):
             
-            if not list1 or not list2:
-                if list1:
-                    merged_list.next = list1
-                    return 
-                elif list2:
-                    merged_list.next = list2
-                    return 
-                return None
+#             if not list1 or not list2:
+#                 if list1:
+#                     merged_list.next = list1
+#                     return 
+#                 elif list2:
+#                     merged_list.next = list2
+#                     return 
+#                 return None
             
-            if list1.val <= list2.val:
-                merged_list.next = ListNode(list1.val)
-                merge(merged_list.next, list1.next, list2)
-            else:
-                merged_list.next = ListNode(list2.val)
-                merge(merged_list.next, list1, list2.next)
+#             if list1.val <= list2.val:
+#                 merged_list.next = ListNode(list1.val)
+#                 merge(merged_list.next, list1.next, list2)
+#             else:
+#                 merged_list.next = ListNode(list2.val)
+#                 merge(merged_list.next, list1, list2.next)
             
-        dummy = ListNode()
-        dummy_head = dummy
-        merge(dummy, list1, list2)
+#         dummy = ListNode()
+#         dummy_head = dummy
+#         merge(dummy, list1, list2)
         
-        return dummy_head.next
+#         return dummy_head.next
+    
+    
+    def mergeTwoLists(self, l1, l2):
+        if not l1 or not l2:
+            return l1 or l2
+        if l1.val < l2.val:
+            l1.next = self.mergeTwoLists(l1.next, l2)
+            return l1
+        else:
+            l2.next = self.mergeTwoLists(l1, l2.next)
+            return l2
+    
             
 # Iteratively            
 # class Solution:
