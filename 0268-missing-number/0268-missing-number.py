@@ -9,9 +9,6 @@ class Solution:
             
             while nums[ptr] != ptr and nums[ptr] != None:
                 
-                # if nums[ptr] == None:
-                #     continue
-                    
                 right = nums[ptr]
                 nums[ptr], nums[right] = nums[right], nums[ptr]
                 
