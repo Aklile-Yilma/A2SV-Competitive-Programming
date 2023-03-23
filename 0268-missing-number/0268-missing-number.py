@@ -2,13 +2,23 @@ class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         
         # to get range of number from 0  to n
-        n = len(nums) + 1
-        nums = set(nums)
         
+        nums.append(None)
         
-        for num in range(n):
-            # o(1) to check an item is in a set
-            if(num not in nums):
-                return num
+        for ptr in range(len(nums)):
+            
+            while nums[ptr] != ptr and nums[ptr] != None:
+                
+                # if nums[ptr] == None:
+                #     continue
+                    
+                right = nums[ptr]
+                nums[ptr], nums[right] = nums[right], nums[ptr]
+                
+            
+        for idx in range(len(nums)):
+            if nums[idx] == None:
+                return idx
             
         return -1
+                
