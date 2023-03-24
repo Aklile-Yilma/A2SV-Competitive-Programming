@@ -1,16 +1,17 @@
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         
-        nums.sort()
-        
-        left = 0
-        for right in range(len(nums)):
-            
-            if right != left and nums[left] == nums[right]:
-                return nums[left]
-            
-            if right - left + 1 > 1:
-                left += 1
+        res = []
+        #cyclic sort
+        for ptr in range(len(nums)):
+            while nums[ptr] != ptr + 1:
+                correct_pos = nums[ptr] - 1
+                if nums[ptr] == nums[correct_pos]:
+                    return nums[ptr]
+                    
+                nums[ptr], nums[correct_pos] = nums[correct_pos], nums[ptr] 
                 
+        return
+            
         
         
