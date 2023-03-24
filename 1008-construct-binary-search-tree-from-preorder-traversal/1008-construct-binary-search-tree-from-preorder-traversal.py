@@ -9,25 +9,17 @@ class Solution:
         
         
         def helper(root, val):
-            
+    
             if root == None:
-                return
+                return TreeNode(val)
             
-            if  val < root.val and root.left == None:
-                root.left = TreeNode(val)
-                return
-            
-            if  val > root.val and root.right == None:
-                root.right = TreeNode(val)
-                return
-            
-            #recursive call
-            if val < root.val:
-                return helper(root.left, val)
+            if  val < root.val:
+                root.left = helper(root.left, val)
             else:
-                return helper(root.right, val)
-                
+                root.right = helper(root.right, val)
             
+            return root
+                
         root = TreeNode(preorder[0])
         
         for idx in range(1, len(preorder)):
