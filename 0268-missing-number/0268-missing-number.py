@@ -3,19 +3,19 @@ class Solution:
         
         # to get range of number from 0  to n
         
-        nums.append(None)
         
         for ptr in range(len(nums)):
             
-            while nums[ptr] != ptr and nums[ptr] != None:
+            while nums[ptr] != ptr and nums[ptr] < len(nums):
                 
                 right = nums[ptr]
+                
                 nums[ptr], nums[right] = nums[right], nums[ptr]
                 
             
         for idx in range(len(nums)):
-            if nums[idx] == None:
+            if nums[idx] != idx:
                 return idx
             
-        return -1
+        return len(nums)
                 
