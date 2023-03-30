@@ -3,32 +3,29 @@ class Solution:
         
         permutations = []
         curr_perm = []
-        curr_permset = set()
         
-        def backtrack(curr_idx, curr_perm, curr_permset):
-            
+        def backtrack(curr_perm, num):
             if len(curr_perm) == len(nums):
                 permutations.append(curr_perm.copy())
                 return
             
             for idx in range(len(nums)):
-                
-                if nums[idx] not in curr_permset:
+                is_visited = num & (1 << idx)
+                if not is_visited:
                     #place candidate
                     curr_perm.append(nums[idx])
-                    curr_permset.add(nums[idx])
                     
                     #backtrack
-                    backtrack(idx, curr_perm, curr_permset)
+                    backtrack(curr_perm,  num | (1 << idx))
                     
                     #remove candidate
                     item = curr_perm.pop()
-                    curr_permset.remove(item)
+                    # num = num ^ (1 << idx)
                     
             return
         
         
-        backtrack(-1, curr_perm, curr_permset)
+        backtrack(curr_perm, 0)
         
         return permutations
         
