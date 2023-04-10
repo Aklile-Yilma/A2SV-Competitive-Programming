@@ -10,9 +10,8 @@ class Solution:
             
             for idx in range(len(graph[node])):
                 next_node = graph[node][idx]
-                curr_path.append(next_node)
-                backtrack(next_node, curr_path)
-                curr_path.pop()
+                backtrack(next_node, curr_path + [next_node])
+           
             return
         
         backtrack(0, [0])
