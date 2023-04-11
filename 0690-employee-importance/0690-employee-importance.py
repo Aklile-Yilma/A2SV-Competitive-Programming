@@ -11,7 +11,6 @@ class Solution:
     def getImportance(self, employees: List['Employee'], id: int) -> int:
         
         employees_map = {}
-        visited = set()
         
         for employee in employees:
             employees_map[employee.id] = employee
@@ -19,10 +18,8 @@ class Solution:
         def dfs(id):
             
             importance = employees_map[id].importance
-            visited.add(id)
             for neighbor in employees_map[id].subordinates:
-                if neighbor not in visited:
-                    importance += dfs(neighbor)
+                importance += dfs(neighbor)
                     
             return importance
             
