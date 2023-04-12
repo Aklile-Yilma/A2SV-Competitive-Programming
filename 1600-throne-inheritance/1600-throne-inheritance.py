@@ -15,9 +15,6 @@ class ThroneInheritance:
         
         def preorder(name):
             
-            if self.graph[name] == []:
-                return [name]
-            
             order = [name]
             for child in self.graph[name]:
                 order += preorder(child)
