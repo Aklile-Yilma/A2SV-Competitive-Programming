@@ -10,7 +10,7 @@ class Solution:
             graph[u].append(v)
             graph[v].append(u)            
         
-        def dfs(parent, curr_node, curr_color):
+        def dfs(curr_node, curr_color):
             
             if curr_node in visited:
                 if (curr_color and curr_node not in group1) or (not curr_color and curr_node not in group2):
@@ -25,16 +25,15 @@ class Solution:
                 group2.add(curr_node)
                 
             for neighbor in graph[curr_node]:
-                if neighbor != parent:
-                    possible = dfs(curr_node, neighbor, not curr_color)
-                    if not possible:
-                        return False
+                possible = dfs(neighbor, not curr_color)
+                if not possible:
+                    return False
                     
             return True
         
         for node in graph:
             if node not in visited:
-                possible = dfs(None, node, True)    
+                possible = dfs(node, True)    
                 if not possible:
                     return False
                 
