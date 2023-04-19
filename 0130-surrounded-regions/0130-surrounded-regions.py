@@ -16,6 +16,7 @@ class Solution:
                     dfs(new_row, new_col)
             return
         
+        #conquer boarder O's and change them to T
         for row in range(row_len):
             for col in range(col_len):
                 if board[row][col] == "O" and (row in [0, row_len-1] or col in [0, col_len-1]):
@@ -23,8 +24,10 @@ class Solution:
                     
         for row in range(row_len):
             for col in range(col_len):
+                #change remaining O's to T's
                 if board[row][col] == "O":
                     board[row][col] = "X"
+                #change remaing T's back to O's
                 if board[row][col] == "T":
                     board[row][col] = "O"
                     
