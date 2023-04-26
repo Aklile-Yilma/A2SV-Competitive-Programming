@@ -8,25 +8,24 @@ class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
         
         q = deque()
-        q.append([root, 0])
+        q.append(root)
         visited = set()
-        totals = defaultdict(list)
+        averages = []
         
         while q:
-            node, level = q.popleft()
-            if node.left:
-                q.append([node.left, level + 1])
-            if node.right:
-                q.append([node.right, level + 1])
-    
-            curr = totals.get(level, [0,0])
-            totals[level] = [curr[0] + node.val , curr[1] + 1]
+            size = len(q)
+            curr_level = []
+            for idx in range(size):
+                node = q.popleft()
+                curr_level.append(node.val) 
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+
+            averages.append(sum(curr_level)/len(curr_level))
         
-        averages = []
-        for level in totals:
-            total, amount = totals[level]
-            averages.append(total / amount)
-        
+
         return averages
             
         
