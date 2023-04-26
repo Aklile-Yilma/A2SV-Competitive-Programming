@@ -14,16 +14,17 @@ class Solution:
         
         while q:
             size = len(q)
-            curr_level = []
+            total, count = 0, 0
             for idx in range(size):
                 node = q.popleft()
-                curr_level.append(node.val) 
+                total += node.val
+                count += 1
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
 
-            averages.append(sum(curr_level)/len(curr_level))
+            averages.append(total/count)
         
 
         return averages
