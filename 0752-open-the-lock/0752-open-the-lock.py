@@ -10,7 +10,7 @@ class Solution:
             
             for i in range(len(node)):
                 curr = node_list[i]
-                nxt = "0" if curr == '9' else str(int(curr) + 1)
+                nxt = str((int(curr) + 1)%9)
                 children_list.append(''.join(node_list[:i] + [nxt] + node_list[i+1:]))
                 prev = "9" if curr == '0' else str(int(curr) - 1)
                 children_list.append(''.join(node_list[:i] + [prev] + node_list[i+1:]))
@@ -20,19 +20,19 @@ class Solution:
         q = deque()
         q.append(('0000', 0))
         visited = {'0000'}
-        min_count = float('inf')
         
         while q:
             node, step = q.popleft()
             if node == target:
-                min_count = min(step, min_count)
+                return step
+            
             children = get_neighbors(node)
             for child in children:
                 if child not in deadends and child not in visited:
                     visited.add(child)
                     q.append((child, step + 1))
                     
-        return min_count if min_count != float('inf') else -1
+        return -1
         
         
         
