@@ -8,9 +8,9 @@ class Solution:
             
         for _ in range(k):
             stones = abs(heappop(heap))
-            stones = (stones - stones // 2)
+            stones -= stones // 2
             heappush(heap, -stones)
         
-        return abs(sum(heap))
+        return -sum(heap)
             
         
