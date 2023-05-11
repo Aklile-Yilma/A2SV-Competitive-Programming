@@ -4,7 +4,7 @@ class Solution:
         graph = defaultdict(list)
         indegree = [0] * n
         order = []
-        ancestors = [[] for _ in range(n)]
+        ancestors = [set() for _ in range(n)]
         
         for u,v in edges:
             graph[u].append(v)
@@ -21,12 +21,8 @@ class Solution:
             
             for child in graph[node]:
                 indegree[child] -= 1
-                anset = set(ancestors[child])
-                for ancestor in ancestors[node]:
-                    if ancestor not in anset:
-                        ancestors[child].append(ancestor)
-                # ancestors[child].extend(ancestors[node])
-                ancestors[child].append(node)            
+                ancestors[child].update(ancestors[node])
+                ancestors[child].add(node)            
                 if indegree[child] == 0:
                     q.append(child)
                     
