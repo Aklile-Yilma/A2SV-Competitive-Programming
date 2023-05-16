@@ -11,32 +11,25 @@ class Solution:
             indegree[u] += 1
             
         q = deque()
-        visited = set()
-        heights = {}
         #append independent
         for node in range(n):
             if indegree[node] <= 1:
-                q.append((node, -1))
-                visited.add(node)
-                heights[node] = -1
+                q.append(node)
         
-        min_height = -1
+        last_level = list(q)
+        
         while q:
-            node, height = q.popleft()
-            for child in graph[node]:
-                indegree[child] -= 1
-                if child not in visited and indegree[child] <= 1:
-                    q.append((child, height-1))
-                    heights[child] = height-1
-                    min_height = min(min_height, height-1)
-                    visited.add(child)
-                    
-        answer = []
-        for node in heights:
-            if heights[node] == min_height:
-                answer.append(node)
+            size = len(q)
+            for _ in range(size):
+                node = q.popleft()
+                for child in graph[node]:
+                    indegree[child] -= 1
+                    if indegree[child] == 1:
+                        q.append(child)
+            if q:          
+                last_level = list(q)
                   
-        return answer
+        return last_level
         
         
         
