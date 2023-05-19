@@ -15,7 +15,6 @@ class Solution:
             if found:
                 break
         
-        print(source)
         #find all neightbors of 1
         q = deque()
         q.append(source)
