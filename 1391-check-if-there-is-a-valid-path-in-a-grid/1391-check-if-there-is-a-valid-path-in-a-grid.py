@@ -65,15 +65,12 @@ class Solution:
                     new_row = row + directions[idx][0]
                     new_col = col + directions[idx][1]
                     if inbound(new_row, new_col) and (new_row, new_col) not in visited:
-                        # print(row, col,(new_row, new_col))
                         cand_node = grid[new_row][new_col]
-                        # print("nodes", curr_node, cand_node, idx)
                         if cand_node in connections[curr_node][idx]:
-                            # print(self.root, (row, col), (new_row, new_col))
                             first = col + (row * col_len)
                             second = new_col + (new_row * col_len)
                             self.union(first, second)
-        # print(self.root)
+                            
         return self.connected(0, row_len*col_len-1)
         
         
