@@ -25,7 +25,6 @@ class LockingTree:
         return False
         
     def upgrade(self, num: int, user: int) -> bool:
-        # print(num, self.status)
         if self.status[num] != -1:
             return False
 
