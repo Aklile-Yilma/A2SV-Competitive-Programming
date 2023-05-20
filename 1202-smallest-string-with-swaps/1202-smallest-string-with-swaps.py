@@ -16,25 +16,16 @@ class Solution:
         #sort the indices
         for idx in range(len(collections)):
             collections[idx] = sorted(collections[idx])
-        
-        letters = [[] for _ in range(n)]
-        
-        #collect the letters by the indices
-        for idx in range(len(collections)):
-            collection = collections[idx]
-            for i in collection:
-                letters[idx].append(s[i])
-                
-        #sort the letters by the indices    
-        for idx in range(len(letters)):
-            letters[idx] = sorted(letters[idx])
             
+        #collect the letters by the indices
+        #sort the letters by the indices            
+        letters = [sorted(collections[i], key=lambda x: s[x]) for i in range(len(collections))] 
+                
         ans = [None] * n
-        
         for idx in range(len(collections)):
             for j in range(len(collections[idx])):
                 i = collections[idx][j]
-                ans[i] = letters[idx][j]
+                ans[i] = s[letters[idx][j]]
         
         return ''.join(ans)
 
