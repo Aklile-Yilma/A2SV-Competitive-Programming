@@ -11,6 +11,7 @@ class Solution:
             par = uf.find(letter)
             collections[par].add(letter)
         
+        # assign the smallest letter in connected letters
         ans = list(baseStr)
         for idx in range(len(baseStr)):
             curr_letter = baseStr[idx]
