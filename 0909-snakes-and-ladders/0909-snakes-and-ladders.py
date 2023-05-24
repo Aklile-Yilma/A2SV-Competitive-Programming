@@ -42,10 +42,15 @@ class Solution:
                 new_num = num+d
                 if new_num < destination + 1:
                     row, col = mapToIndex(new_num)
+                    curr_step = 0
                     if board[row][col] != -1:
-                        new_num = board[row][col]
+                        if board[row][col] not in visited:
+                            q.append((board[row][col], step + 1))
+                            visited.add(board[row][col])
+                            visited.add(new_num)
+                    else:
+                        if new_num not in visited:
+                            q.append((new_num, step+1))
+                            visited.add(new_num)
                         
-                    if new_num not in visited:
-                        q.append((new_num, step+1))
-                        visited.add(new_num)
         return -1
