@@ -16,7 +16,6 @@ class Solution:
             res_u = uf.group_res[uf.find(u)]
             res_v = uf.group_res[uf.find(v)]
             
-            # print(u, v, res_u, res_v)
             for r1 in res_u:
                 if uf.connected(v, r1):
                     can = False
@@ -59,23 +58,17 @@ class UnionFind:
     def union(self, n1, n2):
         p1, p2 = self.find(n1), self.find(n2)
         if p1 == p2:
-            # print(n1, n2, p1, p2, "hree")
             return False
 
         if self.rank[p1] > self.rank[p2]:
             self.par[p2] = p1
-            # print(p1, p2, self.group_res[p1], self.group_res[p2])
             self.group_res[p1].update(self.group_res[p2])
-            # print(self.group_res[p2])
         elif self.rank[p1] < self.rank[p2]:       
-            # print(n1, n2, p1, p2,  self.group_res[p1], self.group_res[p2])
             self.par[p1] = p2
             self.group_res[p2].update(self.group_res[p1])
         else:
-            # print(n1, n2, p1, p2,  self.group_res[p1], self.group_res[p2])
             self.par[p1] = p2
             self.group_res[p2].update(self.group_res[p1])
-            # print(self.group_res[p2])
             self.rank[p2] += 1
         return True
 
