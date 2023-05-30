@@ -15,7 +15,10 @@ class Solution:
         
         money = 0
         for idx in range(len(nums)):
-            money = max(money, backtrack(idx))
-            
+            if idx not in self.memo:
+                money = max(money, backtrack(idx))
+            else:
+                money = max(money, self.memo[idx])
+                
         return money
         
