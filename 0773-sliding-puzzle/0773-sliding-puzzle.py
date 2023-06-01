@@ -20,7 +20,6 @@ class Solution:
                     
         while q:
             (row, col), board, steps = q.popleft()
-            # print(board, (row, col))
             
             if check(board):
                 return steps
@@ -30,14 +29,11 @@ class Solution:
                 new_col = col + directions[idx+1]
                 if inbound(new_row, new_col):
                     new_board = [row[:] for row in board]
-                    # print("before", new_board,(row, col), (new_row, new_col))
                     new_board[new_row][new_col], new_board[row][col] = new_board[row][col], new_board[new_row][new_col]
-                    # print("after", new_board)
                     if tuple(map(tuple, new_board)) not in visited:
                         q.append(((new_row, new_col), new_board, steps+1))
                         visited.add(tuple(map(tuple, new_board)))
                         
-            # print("end")
                         
         return -1
         
