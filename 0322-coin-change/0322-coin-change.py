@@ -1,35 +1,15 @@
-class Solution:
-    def __init__(self):
-        self.memo = {}
-        
+class Solution:        
     def coinChange(self, coins: List[int], amount: int) -> int:
-        if amount == 0:
-            return 0
         
-        size = len(coins)
-        coins.sort(reverse=True)
+        dp = [float('inf')] * (amount + 1)
+        #we can reach 0 in 0 ways
+        dp[0] = 0
         
-        #remaining amount, seqence_length
-        q = deque()
-        
-        for idx in range(size):
-            coin = coins[idx]
-            curr_total = amount - coin
-            if coin <= amount and curr_total not in self.memo:
-                q.append((curr_total, 1))
-                self.memo[curr_total] = 1
+        for amt in range(1,amount+1):
+            for i in range(len(coins)):
+                if amt - coins[i] >= 0:
+                    dp[amt] = min( dp[amt], dp[amt-coins[i]] + 1)
                 
-        while q:
-            remaining, steps = q.popleft()
-            if remaining == 0:
-                return steps
-            
-            for idx in range(size):
-                coin = coins[idx]
-                curr_total = remaining - coin
-                
-                if curr_total >= 0 and curr_total not in self.memo:
-                    q.append((curr_total, steps+1))
-                    self.memo[curr_total] = steps + 1
-                    
-        return -1
+        return dp[amount] if dp[amount] != float('inf') else -1
+    
+    
