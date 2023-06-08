@@ -1,24 +1,23 @@
 class Solution:
-    def __init__(self):
-        self.memo = {}
-        
     def minPathSum(self, grid: List[List[int]]) -> int:
         
         row_len, col_len = len(grid), len(grid[0])
-        inbound = lambda row, col: 0 <= row < row_len and 0 <= col < col_len
         
-        #top-down
-        def dfs(row, col):
+        dp = [[float('inf')] * col_len for _ in range(row_len)]
+        dp[-1][-1] = grid[-1][-1]
+        
+        inbound = lambda row, col: 0 <= row < row_len and 0 <= col < col_len 
+        
+        for row in range(row_len-1, -1, -1):
+            for col in range(col_len-1, -1, -1):
             
-            if [row, col] == [row_len-1, col_len-1]:
-                return grid[row][col]
-            
-            if (row, col) not in self.memo:
-                down = dfs(row+1, col) if inbound(row+1, col) else float('inf')
-                right = dfs(row, col+1) if inbound(row, col+1) else float('inf')
+                if [row, col] == [row_len-1, col_len-1]:
+                    continue
+                    
+                down = dp[row+1][col] if inbound(row+1,col) else float('inf')
+                right = dp[row][col+1] if inbound(row,col+1) else float('inf')
                 
-                self.memo[(row, col)] = min(down, right) + grid[row][col]
+                dp[row][col] = min(down, right) + grid[row][col]   
                 
-            return self.memo[(row, col)]
-    
-        return dfs(0, 0)
+        
+        return dp[0][0]
